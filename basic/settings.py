@@ -58,6 +58,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For developm
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Allow authentication using email
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_CONFIRMATION_HMAC = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = '[django] -'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Default authentication backend

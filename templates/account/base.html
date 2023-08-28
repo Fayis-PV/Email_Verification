@@ -12,8 +12,7 @@
     <div class="container pt-5">
     {% if messages %}
         <div>
-            <strong>Messages:</strong>
-            <br>
+            <strong>{% trans "Messages:" %}</strong>
             <ul>
                 {% for message in messages %}
                 <li>{{message}}</li>
