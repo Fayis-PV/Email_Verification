@@ -6,7 +6,7 @@ from django.urls import reverse_lazy,reverse
 from allauth.account.models import EmailAddress
 from allauth.account.utils import send_email_confirmation
 from django.contrib.auth import get_user_model
-from allauth.account.views import EmailVerificationSentView
+from allauth.account.views import EmailVerificationSentView,ConfirmEmailView
 from django.shortcuts import get_object_or_404
 
 
@@ -68,3 +68,13 @@ class CustomEmailVerificationSentView(EmailVerificationSentView):
         user_id = self.send_verification_email(request, user)
         redirect_url = reverse('account_email_verification_sent') + f'?id={user_id}'
         return redirect(redirect_url)
+    
+
+class CustomConfirmEmailView(ConfirmEmailView):
+    def get(self,*args, **kwargs):
+        if self.request.user:
+        
+            return redirect('account_login')
+        
+        super().get(self,*args, **kwargs)
+            
